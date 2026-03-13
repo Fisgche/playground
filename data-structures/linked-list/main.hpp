@@ -16,9 +16,11 @@ public:
      int size;     
      List();
      void Add(Node*);
-     Node Get(int index);
-     bool Remove(int index);
+     Node* Get(int);
+     bool Remove(int);
      void Print();
-     void PrintNode(Node node);
+     void Print(int);
+private:
+    bool CheckIndex(int);
 };
 

@@ -25,6 +25,7 @@ void List::Add(Node* node){
     }
 
     aux->next = node;
+    this->size++;
 }
 
 void List::Print(){
@@ -33,6 +34,42 @@ void List::Print(){
         std::cout << aux->value << std::endl;
         aux = aux->next;
     }
+}
+
+bool List::CheckIndex(int index){
+    if(index > this->size || index < 0){
+        std::cout << "This node doesn't exist" << std::endl;
+        return false;
+    }
+
+    return true;
+}
+
+Node* List::Get(int index){
+    
+    if(!List::CheckIndex(index)){
+        return nullptr;
+    }
+
+    Node* aux = this->firstNode;
+    int count = 0;
+    while(count != index){
+        aux = aux->next;
+        count++;
+    }
+
+    return aux;
+}
+
+void List::Print(int index){
+
+    Node* node = List::Get(index);
+
+    if(node == nullptr){
+        return;
+    }
+
+    std::cout << node->value << std::endl;
 }
 
 
@@ -45,6 +82,8 @@ int main(){
     list->Add(&node1);
     list->Add(&node2);
     list->Add(&node3);
-
+    
     list->Print();
+    list->Print(0);
+
 }
