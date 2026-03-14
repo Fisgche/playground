@@ -30,10 +30,13 @@ void List::Add(Node* node){
 
 void List::Print(){
     Node* aux = this->firstNode;
+    int count = 0;
     while(aux != nullptr){
-        std::cout << aux->value << std::endl;
+        std::cout << aux->value << " | ";
         aux = aux->next;
+        count++;
     }
+    std::cout << std::endl;
 }
 
 bool List::CheckIndex(int index){
@@ -42,6 +45,51 @@ bool List::CheckIndex(int index){
         return false;
     }
 
+    return true;
+}
+
+bool List::Remove(int index){
+    Node * nodeRemoved; 
+    Node * before;
+    
+    if(!CheckIndex(index)){
+        return false;
+    }    
+
+    if(index == 0){
+        nodeRemoved = this->firstNode;
+        this->firstNode = this->firstNode->next;
+    }
+    else{
+        nodeRemoved = List::Get(index);
+        before = List::Get(index - 1);
+        before->next = nodeRemoved->next;
+    }
+
+    this->size--;
+    
+    return true;
+}
+
+bool List::Insert(int index, Node* nodeInsert){
+    Node * node; 
+    
+    if(!CheckIndex(index)){
+        return false;
+    }    
+
+    if(index == 0){
+        nodeInsert->next = this->firstNode;
+        this->firstNode = nodeInsert;
+    }
+    else{
+        node = List::Get(index);
+        nodeInsert->next = node->next;
+        node->next = nodeInsert;
+    }
+
+    this->size++;
+    
     return true;
 }
 
@@ -82,8 +130,12 @@ int main(){
     list->Add(&node1);
     list->Add(&node2);
     list->Add(&node3);
-    
     list->Print();
-    list->Print(0);
-
+    Node *node4 = new Node(7);
+    list->Insert(2,node4);
+    list->Print();
+    node4  = new Node(7);
+    list->Insert(1,node4);
+    list->Print();
+    
 }

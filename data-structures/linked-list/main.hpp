@@ -18,6 +18,7 @@ public:
      void Add(Node*);
      Node* Get(int);
      bool Remove(int);
+     bool Insert(int, Node*);
      void Print();
      void Print(int);
 private:
