@@ -17,9 +17,9 @@ bool isUnique(std::string text){
 int main(){
     std::string text = "test";
     if(isUnique(text)){
-        std::cout << "The string is unique";
+        std::cout << "The string is unique" <<std::endl;;
     }
     else{
-        std::cout << "The string is not unique";
+        std::cout << "The string is not unique" <<std::endl;;
     }
 }

@@ -32,10 +32,10 @@ int main(){
     std::string str1 = "test";
     std::string str2 = "ttse";
     if(checkPermutation(str1, str2)){
-        std::cout << "Is a permutation";
+        std::cout << "Is a permutation" << std:: endl;
     }
     else{
-        std::cout << "Is not a permutation";
+        std::cout << "Is not a permutation" << std::endl;
     }
 
 }
