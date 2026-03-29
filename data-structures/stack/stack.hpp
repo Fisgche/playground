@@ -7,6 +7,7 @@ public:
     type_value Pop();
     type_value Get(type_value x);
     void Print();
+    type_value GetTop();
 
 private:
     NodeStack* Top;

@@ -7,6 +7,14 @@ void Stack::Push(type_value x){
     this->Top= node;
 }
 
+type_value Stack::GetTop(){
+    if(this->Top == nullptr){
+        Log::Print("Stack is empty");
+        return -1;
+    }
+    return this->Top->GetValue();
+}
+
 type_value Stack::Pop(){
     type_value value;
     if(this->Top == nullptr){
