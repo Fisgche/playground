@@ -5,6 +5,7 @@
 void Stack::Push(type_value x){
     NodeStack* node = new NodeStack(x, this->Top);
     this->Top= node;
+    count++;
 }
 
 type_value Stack::GetTop(){
@@ -25,6 +26,7 @@ type_value Stack::Pop(){
     NodeStack* node = this->Top;
     this->Top = this->Top->GetNext();
     free(node);
+    count--;
     return value;
 }
 
@@ -47,4 +49,8 @@ void Stack::Print(){
         auxTop = auxTop->GetNext();
     }
     std::cout << std::endl;
+}
+
+int Stack::Size(){
+    return count;
 }

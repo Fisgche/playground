@@ -8,8 +8,9 @@ public:
     type_value Get(type_value x);
     void Print();
     type_value GetTop();
-
+    int Size();
 private:
     NodeStack* Top;
+    int count = 0;
 
 };
