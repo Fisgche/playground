@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include "hashtable.hpp"
 
 Node::Node(){
     this->key = 0;
@@ -66,22 +66,4 @@ void HashTable::Print(){
         }
         std::cout << std::endl;
     }
-}
-
-int main(){
-
-    Node* node1 = new Node(99,2);
-    Node* node2 = new Node(25,66);
-    Node* node3 = new Node(5,100);
-
-    HashTable* hashTable = new HashTable();
-    hashTable->Insert(node1);
-    hashTable->Insert(node2);
-    hashTable->Insert(node3);
-    hashTable->Print();
-    hashTable->Delete(node2);
-    hashTable->Print();
-    Node * node = hashTable->Get(99);
-    std::cout << node->GetValue();
-
 }

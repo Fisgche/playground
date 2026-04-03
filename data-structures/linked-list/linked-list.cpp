@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include "linked-list.hpp"
 #include <iostream>
 
 Node::Node(type_value value){
@@ -120,22 +120,3 @@ void List::Print(int index){
     std::cout << node->value << std::endl;
 }
 
-
-
-int main(){
-    List* list = new List();
-    Node node1(1);
-    Node node2(2);
-    Node node3(3);
-    list->Add(&node1);
-    list->Add(&node2);
-    list->Add(&node3);
-    list->Print();
-    Node *node4 = new Node(7);
-    list->Insert(2,node4);
-    list->Print();
-    node4  = new Node(7);
-    list->Insert(1,node4);
-    list->Print();
-    
-}
