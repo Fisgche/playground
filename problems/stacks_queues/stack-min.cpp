@@ -1,7 +1,7 @@
 #include "../../data-structures/stack/stack.hpp"
 #include <iostream>
 
-class StackMin:Stack
+class StackMin:public Stack
 {
     public:
         void PushMin(type_value x);
@@ -9,7 +9,7 @@ class StackMin:Stack
         type_value GetMin();
         void Print();
     private:
-        Stack* minStack;
+        Stack* minStack =  new Stack();
 };
 
 type_value StackMin::GetMin(){
@@ -25,7 +25,7 @@ void StackMin::PushMin(type_value x){
         minStack->Push(x);
     }
     else{
-        if(minStack->GetTop() <= x){
+        if(minStack->GetTop() >= x){
             minStack->Push(x);
         }
     }
@@ -48,7 +48,7 @@ type_value StackMin::PopMin(){
 
 void StackMin::Print(){
     std::cout << "Min value: " << GetMin() << std::endl;
-    Print();
+    Stack::Print();
 }
 
 
@@ -57,5 +57,9 @@ int main(){
     StackMin* stack = new StackMin();
     stack->PushMin(7);
     stack->PushMin(8);
+    stack->PushMin(5);
+    stack->PushMin(3);
+    stack->Print();
+    stack->PopMin();
     stack->Print();
 }
