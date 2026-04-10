@@ -1,6 +1,6 @@
 #include <forward_list>
 #include <iostream>
-#include "../../data-structures/linked-list/main.hpp"
+#include "../../data-structures/linked-list/linked-list.hpp"
 
 void RemoveMiddleNode(Node* node){
     Node* aux = node->next;
